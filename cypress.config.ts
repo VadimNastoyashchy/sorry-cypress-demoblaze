@@ -2,7 +2,7 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    projectId: "crkxpa",
+    projectId: 'FaU3OF',
     supportFile: 'cypress/support/e2e.ts',
     video: false,
     viewportHeight: 1080,
