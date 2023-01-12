@@ -19,4 +19,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Cypress run
-        run: npx currents run --parallel --record --key j6XZkxnUlmBUzDo4 --ci-build-id ${{ github.run_id }}
+        run: npm run test
