@@ -8,7 +8,6 @@
     "lint": "eslint . --ext .ts",
     "check": "npm run tsc && npm run lint",
     "open": "npm run check && npx cypress open",
-    "test": "npx currents run --parallel --record --key j6XZkxnUlmBUzDo4 --ci-build-id `date +%s`"
   },
   "repository": {
     "type": "git",
