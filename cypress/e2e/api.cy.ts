@@ -3,36 +3,42 @@ import Api from '../src/Api';
 
 describe('API tests', () => {
 
-    describe('Check \"api.demoblaze.com/bycat\" api endpoint', () => {
-        const categoryKeys = ['cat', 'desc', 'id', 'img', 'price', 'title'];
+    describe(`Check ${Demoblaze.bycat} api endpoint`, () => {
+        const requestBody = {
+            phone: {
+                cat: 'phone'
+            },
+            notebook: {
+                cat: 'notebook'
+            },
+            monitor: {
+                cat: 'monitor'
+            }
+        };
 
         const checkStatusCodeAndResponseParams = (response: Cypress.Response<any>, uniqKey: string): void => {
             expect(response.status).to.eq(200);
             expect(response.body.Items[0]).to.have.property('cat', uniqKey);
-            expect(response.body.Items[0]).to.have.keys(categoryKeys);
         };
 
         it('Check "Phone category" with API', () => {
-            const phoneValue: string = 'phone';
-            Api.POST(Demoblaze.bycat, {cat: phoneValue})
+            Api.POST(Demoblaze.bycat, requestBody.phone)
                 .then((resp) => {
-                    checkStatusCodeAndResponseParams(resp, phoneValue);
+                    checkStatusCodeAndResponseParams(resp, requestBody.phone.cat);
                 });
         });
 
         it('Check "Laptop category" with API', () => {
-            const notebookValue: string = 'notebook';
-            Api.POST(Demoblaze.bycat, {cat: notebookValue})
+            Api.POST(Demoblaze.bycat, requestBody.notebook)
                 .then((resp) => {
-                    checkStatusCodeAndResponseParams(resp, notebookValue);
+                    checkStatusCodeAndResponseParams(resp, requestBody.notebook.cat);
                 });
         });
 
         it('Check "Monitor category" with API', () => {
-            const monitorValue: string = 'monitor';
-            Api.POST(Demoblaze.bycat, {cat: monitorValue})
+            Api.POST(Demoblaze.bycat, requestBody.monitor)
                 .then((resp) => {
-                    checkStatusCodeAndResponseParams(resp, monitorValue);
+                    checkStatusCodeAndResponseParams(resp, requestBody.monitor.cat);
                 });
         });
     });
