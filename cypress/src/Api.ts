@@ -1,6 +1,7 @@
-export default class ApiSupport {
-
+class Api {
     public static POST(requestUrl: string, requestBody: Cypress.RequestBody): Cypress.Chainable<Cypress.Response<any>> {
         return cy.request('POST', requestUrl, requestBody);
     }
 }
+
+export default Api;

@@ -1,5 +1,5 @@
 import Demoblaze from '../src/apiServices/Demoblaze';
-import ApiSupport from '../src/ApiSupport';
+import Api from '../src/Api';
 
 describe('API tests', () => {
 
@@ -14,7 +14,7 @@ describe('API tests', () => {
 
         it('Check "Phone category" with API', () => {
             const phoneValue: string = 'phone';
-            ApiSupport.POST(Demoblaze.bycat, {cat: phoneValue})
+            Api.POST(Demoblaze.bycat, {cat: phoneValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, phoneValue);
@@ -23,7 +23,7 @@ describe('API tests', () => {
 
         it('Check "Laptop category" with API', () => {
             const notebookValue: string = 'notebook';
-            ApiSupport.POST(Demoblaze.bycat, {cat: notebookValue})
+            Api.POST(Demoblaze.bycat, {cat: notebookValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, notebookValue);
@@ -32,7 +32,7 @@ describe('API tests', () => {
 
         it('Check "Monitor category" with API', () => {
             const monitorValue: string = 'monitor';
-            ApiSupport.POST(Demoblaze.bycat, {cat: monitorValue})
+            Api.POST(Demoblaze.bycat, {cat: monitorValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, monitorValue);
