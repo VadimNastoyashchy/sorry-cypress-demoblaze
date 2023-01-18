@@ -1,4 +1,4 @@
-import Demoblaze from '../src/apiServices/Demoblaze';
+import Demoblaze from '../src/endpoints/Demoblaze';
 import Api from '../src/Api';
 
 describe('API tests', () => {
@@ -15,28 +15,25 @@ describe('API tests', () => {
         it('Check "Phone category" with API', () => {
             const phoneValue: string = 'phone';
             Api.POST(Demoblaze.bycat, {cat: phoneValue})
-                .then(
-                    (resp) => {
-                        checkStatusCodeAndResponseParams(resp, phoneValue);
-                    });
+                .then((resp) => {
+                    checkStatusCodeAndResponseParams(resp, phoneValue);
+                });
         });
 
         it('Check "Laptop category" with API', () => {
             const notebookValue: string = 'notebook';
             Api.POST(Demoblaze.bycat, {cat: notebookValue})
-                .then(
-                    (resp) => {
-                        checkStatusCodeAndResponseParams(resp, notebookValue);
-                    });
+                .then((resp) => {
+                    checkStatusCodeAndResponseParams(resp, notebookValue);
+                });
         });
 
         it('Check "Monitor category" with API', () => {
             const monitorValue: string = 'monitor';
             Api.POST(Demoblaze.bycat, {cat: monitorValue})
-                .then(
-                    (resp) => {
-                        checkStatusCodeAndResponseParams(resp, monitorValue);
-                    });
+                .then((resp) => {
+                    checkStatusCodeAndResponseParams(resp, monitorValue);
+                });
         });
     });
 });
