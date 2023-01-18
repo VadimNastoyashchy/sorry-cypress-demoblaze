@@ -21,21 +21,21 @@ describe('API tests', () => {
             expect(response.body.Items[0]).to.have.property('cat', uniqKey);
         };
 
-        it('Check "Phone category" with API', () => {
+        it(`Check cat ${requestBody.phone.cat} category`, () => {
             Api.POST(Demoblaze.bycat, requestBody.phone)
                 .then((resp) => {
                     checkStatusCodeAndResponseParams(resp, requestBody.phone.cat);
                 });
         });
 
-        it('Check "Laptop category" with API', () => {
+        it(`Check cat ${requestBody.notebook.cat} category`, () => {
             Api.POST(Demoblaze.bycat, requestBody.notebook)
                 .then((resp) => {
                     checkStatusCodeAndResponseParams(resp, requestBody.notebook.cat);
                 });
         });
 
-        it('Check "Monitor category" with API', () => {
+        it(`Check cat ${requestBody.monitor.cat} category`, () => {
             Api.POST(Demoblaze.bycat, requestBody.monitor)
                 .then((resp) => {
                     checkStatusCodeAndResponseParams(resp, requestBody.monitor.cat);
