@@ -1,4 +1,7 @@
 import BaseCategories from '../../base/BaseCategories';
 
-export default class Monitors extends BaseCategories {
+class Monitors extends BaseCategories {
+
 }
+
+export default new Monitors();

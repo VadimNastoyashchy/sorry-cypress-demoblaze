@@ -1,11 +1,13 @@
 import ProductPage from '../pages/ProductPage';
-export default abstract class BaseCategories {
+
+abstract class BaseCategories {
 
     protected readonly CATEGORIES_CONTAINER: string = '#tbodyid';
 
     public get productsItem(): Cypress.Chainable {
         return cy.get(`${this.CATEGORIES_CONTAINER} > div`);
     }
+
     public get titleProductsItem(): Cypress.Chainable {
         return cy.get(`${this.CATEGORIES_CONTAINER} .hrefch`);
     }
@@ -16,8 +18,10 @@ export default abstract class BaseCategories {
         return this;
     }
 
-    public clickOnFirstTitleProductItem(): ProductPage {
-        this.titleProductsItem.eq(0).should('be.visible').click({force:true});
-        return new ProductPage();
+    public clickOnFirstTitleProductItem(): typeof ProductPage {
+        this.titleProductsItem.eq(0).should('be.visible').click({force: true});
+        return ProductPage;
     }
 }
+
+export default BaseCategories;

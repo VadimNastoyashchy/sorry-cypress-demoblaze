@@ -1,4 +1,4 @@
-export default abstract class BaseModal {
+abstract class BaseModal {
 
     protected readonly MODAL_CONTAINER: string;
     protected readonly MODAL_HEADER_CONTAINER: string = '.modal-header';
@@ -8,6 +8,7 @@ export default abstract class BaseModal {
     constructor(modalContainer: string = '') {
         this.MODAL_CONTAINER = modalContainer;
     }
+
     protected get modalTextForm(): Cypress.Chainable {
         return cy.get(`${this.MODAL_BODY_CONTAINER} .form-control-label`);
     }
@@ -63,3 +64,5 @@ export default abstract class BaseModal {
         return this;
     }
 }
+
+export default BaseModal;

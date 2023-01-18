@@ -1,8 +1,8 @@
 import BasePage from '../base/BasePage';
 import Header from '../components/Header';
 
-export default class ProductPage extends BasePage {
-    public header: Header = new Header();
+class ProductPage extends BasePage {
+    public header: typeof Header = Header;
 
     constructor() {
         super('prod.html');
@@ -33,3 +33,5 @@ export default class ProductPage extends BasePage {
         return this;
     }
 }
+
+export default new ProductPage();

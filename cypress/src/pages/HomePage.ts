@@ -7,17 +7,19 @@ import ContactModal from '../modals/ContactModal';
 import AboutUsModal from '../modals/AboutUsModal';
 import SignUpModal from '../modals/SignUpModal';
 
-export default class HomePage extends BasePage {
+class HomePage extends BasePage {
 
-  public header: Header = new Header();
-  public logInModal: LogInModal = new LogInModal();
-  public categories: Categories = new Categories();
-  public carousel: Carousel = new Carousel();
-  public contactModal: ContactModal = new ContactModal();
-  public aboutUsModal: AboutUsModal = new AboutUsModal();
-  public singUpModal: SignUpModal = new SignUpModal();
+    public header: typeof Header = Header;
+    public logInModal: typeof LogInModal = LogInModal;
+    public categories: typeof Categories = Categories;
+    public carousel: typeof Carousel = Carousel;
+    public contactModal: typeof ContactModal = ContactModal;
+    public aboutUsModal: typeof AboutUsModal = AboutUsModal;
+    public singUpModal: typeof SignUpModal = SignUpModal;
 
-  constructor() {
-    super('index.html');
-  }
+    constructor() {
+        super('index.html');
+    }
 }
+
+export default new HomePage();

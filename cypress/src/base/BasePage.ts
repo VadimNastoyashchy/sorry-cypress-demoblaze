@@ -1,4 +1,4 @@
-export default abstract class BasePage {
+abstract class BasePage {
 
     protected readonly PAGE_URL: string;
 
@@ -18,3 +18,5 @@ export default abstract class BasePage {
         return this;
     }
 }
+
+export default BasePage;

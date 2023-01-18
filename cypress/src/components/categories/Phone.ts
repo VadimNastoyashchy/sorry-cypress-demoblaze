@@ -1,4 +1,7 @@
 import BaseCategories from '../../base/BaseCategories';
 
-export default class Phone extends BaseCategories {
+class Phone extends BaseCategories {
+
 }
+
+export default new Phone();

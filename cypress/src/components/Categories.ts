@@ -2,7 +2,7 @@ import Laptops from './categories/Laptops';
 import Monitors from './categories/Monitors';
 import Phone from './categories/Phone';
 
-export default class Categories {
+class Categories {
 
     private listCategoriesContainer: string = '.list-group';
 
@@ -10,27 +10,28 @@ export default class Categories {
         return cy.get(`${this.listCategoriesContainer} [id="itemc"]`);
     }
 
-    public clickOnPhonesCategoryButton(): Phone {
+    public clickOnPhonesCategoryButton(): typeof Phone {
         this.categoryButton
             .should('be.visible')
             .contains('Phones')
             .click();
-        return new Phone();
+        return Phone;
     }
 
-    public clickOnLaptopsCategoryButton(): Laptops {
+    public clickOnLaptopsCategoryButton(): typeof Laptops {
         this.categoryButton
             .should('be.visible')
             .contains('Laptops')
             .click();
-        return new Laptops();
+        return Laptops;
     }
 
-    public clickOnMonitorsCategoryButton(): Monitors {
-        this.categoryButton.
-            should('be.visible')
+    public clickOnMonitorsCategoryButton(): typeof Monitors {
+        this.categoryButton.should('be.visible')
             .contains('Monitors')
             .click();
-        return new Monitors();
+        return Monitors;
     }
 }
+
+export default new Categories();

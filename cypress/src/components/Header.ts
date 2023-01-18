@@ -1,57 +1,67 @@
 import CartPage from '../pages/CartPage';
-export default class Header {
+import LogInModal from '../modals/LogInModal';
+import HomePage from '../pages/HomePage';
+import ContactModal from '../modals/ContactModal';
+import AboutUsModal from '../modals/AboutUsModal';
+import SignUpModal from '../modals/SignUpModal';
 
-  private get logInButton(): Cypress.Chainable {
-    return cy.get('#login2');
-  }
+class Header {
 
-  private get logOutButton(): Cypress.Chainable {
-    return cy.get('#logout2');
-  }
+    private get logInButton(): Cypress.Chainable {
+        return cy.get('#login2');
+    }
 
-  private get userNameInHeader(): Cypress.Chainable {
-    return cy.get('#nameofuser');
-  }
+    private get logOutButton(): Cypress.Chainable {
+        return cy.get('#logout2');
+    }
 
-  private get headerButton(): Cypress.Chainable {
-    return cy.get('.nav-link');
-  }
+    private get userNameInHeader(): Cypress.Chainable {
+        return cy.get('#nameofuser');
+    }
 
-  public clickOnLogInButton(): this {
-    this.logInButton.contains('Log in').click();
-    return this;
-  }
+    private get headerButton(): Cypress.Chainable {
+        return cy.get('.nav-link');
+    }
 
-  public clickOnContactButton(): this {
-    this.headerButton.contains('Contact').click();
-    return this;
-  }
+    public clickOnLogInButton(): typeof LogInModal {
+        this.logInButton.contains('Log in').click();
+        return LogInModal;
+    }
 
-  public clickOnAboutUsButton(): this {
-    this.headerButton.contains('About us').click();
-    return this;
-  }
-  public clickOnSignUpButton(): this {
-    this.headerButton.contains('Sign up').click();
-    return this;
-  }
-  public clickOnCartButton(): CartPage {
-    this.headerButton.contains('Cart').click();
-    return new CartPage();
-  }
+    public clickOnContactButton(): typeof ContactModal {
+        this.headerButton.contains('Contact').click();
+        return ContactModal;
+    }
 
-  public checkUserName(userName: string): this {
-    this.userNameInHeader.should('have.text', `Welcome ${userName}`);
-    return this;
-  }
+    public clickOnAboutUsButton(): typeof AboutUsModal {
+        this.headerButton.contains('About us').click();
+        return AboutUsModal;
+    }
 
-  public clickOnLogOutButton(): this {
-    this.logOutButton.click();
-    return this;
-  }
+    public clickOnSignUpButton(): typeof SignUpModal {
+        this.headerButton.contains('Sign up').click();
+        return SignUpModal;
+    }
 
-  public checkLogInButton(): this {
-    this.logInButton.should('have.text', 'Log in');
-    return this;
-  }
+    public clickOnCartButton(): typeof CartPage {
+        this.headerButton.contains('Cart').click();
+        return CartPage;
+    }
+
+    public checkUserName(userName: string): this {
+        this.userNameInHeader.should('have.text', `Welcome ${userName}`);
+        return this;
+    }
+
+    public clickOnLogOutButton(): typeof HomePage {
+        this.logOutButton.click();
+        return HomePage;
+    }
+
+    public checkLogInButton(): this {
+        this.logInButton.should('have.text', 'Log in');
+        return this;
+    }
 }
+
+export default new Header();

@@ -2,33 +2,28 @@ import HomePage from '../src/pages/HomePage';
 
 describe('Functionality tests', () => {
     it('Check that the product exists in the Phone category', () => {
-        const homePage: HomePage = new HomePage();
-
-        homePage
+        HomePage
             .visit()
             .categories.clickOnPhonesCategoryButton()
             .checkFirstProductItemIsVisible();
     });
-    it('Check that the product exists in the Laptops category', () => {
-        const homePage: HomePage = new HomePage();
 
-        homePage
+    it('Check that the product exists in the Laptops category', () => {
+        HomePage
             .visit()
             .categories.clickOnLaptopsCategoryButton()
             .checkFirstProductItemIsVisible();
     });
-    it('Check that the product exists in the Monitors category', () => {
-        const homePage: HomePage = new HomePage();
 
-        homePage
+    it('Check that the product exists in the Monitors category', () => {
+        HomePage
             .visit()
             .categories.clickOnMonitorsCategoryButton()
             .checkFirstProductItemIsVisible();
     });
-    it('Check that the carousel works consistently.', () => {
-        const homePage: HomePage = new HomePage();
 
-        homePage
+    it('Check that the carousel works consistently.', () => {
+        HomePage
             .visit()
             .carousel.clickCarouselNextButton()
             .checkActiveItem('Second slide')

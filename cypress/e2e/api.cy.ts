@@ -14,29 +14,29 @@ describe('API tests', () => {
 
         it('Check "Phone category" with API', () => {
             const phoneValue: string = 'phone';
-            ApiSupport.POST(Demoblaze.bycat, { cat: phoneValue })
+            ApiSupport.POST(Demoblaze.bycat, {cat: phoneValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, phoneValue);
-                    });;
+                    });
         });
 
         it('Check "Laptop category" with API', () => {
             const notebookValue: string = 'notebook';
-            ApiSupport.POST(Demoblaze.bycat, { cat: notebookValue })
+            ApiSupport.POST(Demoblaze.bycat, {cat: notebookValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, notebookValue);
-                    });;
+                    });
         });
 
         it('Check "Monitor category" with API', () => {
             const monitorValue: string = 'monitor';
-            ApiSupport.POST(Demoblaze.bycat, { cat: monitorValue })
+            ApiSupport.POST(Demoblaze.bycat, {cat: monitorValue})
                 .then(
                     (resp) => {
                         checkStatusCodeAndResponseParams(resp, monitorValue);
-                    });;
+                    });
         });
     });
 });

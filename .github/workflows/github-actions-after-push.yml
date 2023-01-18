@@ -4,18 +4,18 @@ on:
     branches:
       - develop
 jobs:
- cypress-run:
+  cypress-run:
     runs-on: ubuntu-latest
     strategy:
-     matrix:
-      job: [0, 1, 2]
-    steps: 
+      matrix:
+        job: [ 0, 1, 2 ]
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install node
         uses: actions/setup-node@v2
         with:
-           node-version: '16'
+          node-version: '16'
       - name: Install dependencies
         run: npm install
       - name: Cypress run

@@ -1,4 +1,4 @@
-export default class Carousel {
+class Carousel {
     private carouselLocator: string = '#contcar';
 
     private get carouselNextButton(): Cypress.Chainable {
@@ -12,6 +12,7 @@ export default class Carousel {
     private get carouselActiveItem(): Cypress.Chainable {
         return cy.get(`${this.carouselLocator} [class$="active"]>img`);
     }
+
     public checkActiveItem(numberSlide: string): this {
         this.carouselActiveItem.should('have.attr', 'alt', numberSlide);
         return this;
@@ -27,3 +28,5 @@ export default class Carousel {
         return this;
     }
 }
+
+export default new Carousel();

@@ -1,12 +1,10 @@
 import HomePage from '../src/pages/HomePage';
 
-const homePage: HomePage = new HomePage();
 describe('Check modals window on the page', () => {
     it('Check Contact modal window', () => {
-        homePage
+        HomePage
             .visit()
-            .header.clickOnContactButton();
-        homePage.contactModal
+            .header.clickOnContactButton()
             .checkTextInModalHeader('New message')
             .checkTextFormAndInputField('Contact Email:')
             .checkTextFormAndInputField('Contact Name:')
@@ -17,10 +15,9 @@ describe('Check modals window on the page', () => {
     });
 
     it('Check About us modal window', () => {
-        homePage
+        HomePage
             .visit()
-            .header.clickOnAboutUsButton();
-        homePage.aboutUsModal
+            .header.clickOnAboutUsButton()
             .checkTextInModalHeader('About us')
             .checkThatAboutUsVideoVisible()
             .checkHeaderCloseButton()
@@ -28,10 +25,9 @@ describe('Check modals window on the page', () => {
     });
 
     it('Check Log in modal window', () => {
-        homePage
+        HomePage
             .visit()
-            .header.clickOnLogInButton();
-        homePage.logInModal
+            .header.clickOnLogInButton()
             .checkTextInModalHeader('Log in')
             .checkTextFormAndInputField('Username:')
             .checkTextFormAndInputField('Password:')
@@ -41,10 +37,8 @@ describe('Check modals window on the page', () => {
     });
 
     it('Check Sign up modal window', () => {
-        homePage
-            .visit()
-            .header.clickOnSignUpButton();
-        homePage.singUpModal
+        HomePage.visit()
+            .header.clickOnSignUpButton()
             .checkTextInModalHeader('Sign up')
             .checkTextFormAndInputField('Username:')
             .checkTextFormAndInputField('Password:')
